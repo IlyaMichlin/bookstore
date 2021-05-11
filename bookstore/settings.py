@@ -127,6 +127,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (str(BASE_DIR.joinpath('static')),)  # location of static files in local development
+STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))  # location of static files in production
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',  # looks within STATICFILES_DIRS
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',  # looks across entire project for any directory named 'static'
+]  # tells Django how to look for static files
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

@@ -1,13 +1,16 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Bookstore{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}"> <!-- instead of 'static/css/base.css' STATIC_URL automatically is added in the beginning so only 'css/base.css' is needed -->
 </head>
 <body>
     <div class="container">
         {% block content %}
         {% endblock content %}
     </div>
+    <script src="{% static 'js/base.js' %}"></script>
 </body>
 </html>
