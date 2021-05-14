@@ -155,10 +155,13 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',  # default backend
     'allauth.account.auth_backends.AuthenticationBackend',  # allauth backend
 )
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # output emails to the console
 ACCOUNT_SESSION_REMEMBER = True  # remove "Remember Me" box in login
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False  # removes the need to enter password twice in signup
 ACCOUNT_USERNAME_REQUIRED = False  # sets username not required for user
 ACCOUNT_AUTHENTICATION_METHOD = 'email'  # sets email for login
 ACCOUNT_EMAIL_REQUIRED = True  # sets email as an required field
 ACCOUNT_UNIQUE_EMAIL = True  # sets email as a unique field
+
+# E-mail
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # output emails to the console
+DEFAULT_FROM_EMAIL = 'admin@bookstore.com'  # default email origin
