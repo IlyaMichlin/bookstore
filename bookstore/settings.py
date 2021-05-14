@@ -37,9 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',  # must add when adding SITE_ID
 
     # 3rd party
     'crispy_forms',
+    'allauth',
+    'allauth.account',
 
     # local
     'accounts',
@@ -145,6 +148,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Authentication
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
-# Log in
+# django-allauth config
+SITE_ID = 1
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',  # default backend
+    'allauth.account.auth_backends.AuthenticationBackend',  # allauth backend
+)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # output emails to the console
+ACCOUNT_SESSION_REMEMBER = True  # remove "Remember Me" box in login
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False  # removes the need to enter password twice in signup
+ACCOUNT_USERNAME_REQUIRED = False  # sets username not required for user
+ACCOUNT_AUTHENTICATION_METHOD = 'email'  # sets email for login
+ACCOUNT_EMAIL_REQUIRED = True  # sets email as an required field
+ACCOUNT_UNIQUE_EMAIL = True  # sets email as a unique field
