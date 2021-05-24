@@ -140,6 +140,10 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',  # looks across entire project for any directory named 'static'
 ]  # tells Django how to look for static files
 
+# Media
+MEDIA_URL = '/media/'  # absolute file system path
+MEDIA_ROOT = str(BASE_DIR.joinpath('media'))  # URL for templates
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 

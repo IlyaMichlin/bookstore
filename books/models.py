@@ -14,6 +14,8 @@ class Book(models.Model):
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=200)
     price = models.DecimalField(max_digits=6, decimal_places=2)
+    cover = models.ImageField(upload_to='covers/', blank=True)  # automatically concatenates MEDIA_ROOT/covers
+    # to upload a generic file, models.FileField(upload_to='covers/') should be used
 
     def __str__(self):
         return self.title
