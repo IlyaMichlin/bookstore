@@ -17,6 +17,11 @@ class Book(models.Model):
     cover = models.ImageField(upload_to='covers/', blank=True)  # automatically concatenates MEDIA_ROOT/covers
     # to upload a generic file, models.FileField(upload_to='covers/') should be used
 
+    class Meta:  # class for setting permissions
+        permissions = [
+            ('special_status', 'Can read all books'),
+        ]
+
     def __str__(self):
         return self.title
 
