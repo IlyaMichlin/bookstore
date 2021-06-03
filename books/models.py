@@ -18,6 +18,9 @@ class Book(models.Model):
     # to upload a generic file, models.FileField(upload_to='covers/') should be used
 
     class Meta:  # class for setting permissions
+        indexes = [
+            models.Index(fields=['id'], name='id_index'),
+        ]
         permissions = [
             ('special_status', 'Can read all books'),
         ]
