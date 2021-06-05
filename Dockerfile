@@ -13,4 +13,4 @@ COPY Pipfile Pipfile.lock /code/
 RUN pip install pipenv && pipenv install --system
 
 # Copy project
-COPY . /cpde/
+COPY . /code/
