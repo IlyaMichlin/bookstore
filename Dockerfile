@@ -2,7 +2,7 @@
 FROM python:3.8
 
 # Set evironment variables
-ENV PYTHONDOWNTWRITEBYTECODE 1
+ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Set work directory
